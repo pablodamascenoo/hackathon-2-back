@@ -4,6 +4,6 @@ import { verifyToken } from "../middlewares/authMiddleware.js";
 
 const subjectRouter = Router();
 
-subjectRouter.get("/", verifyToken, getSubjects);
+subjectRouter.get("/subjects", verifyToken, getSubjects);
 
 export default subjectRouter;
