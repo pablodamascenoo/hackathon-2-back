@@ -2,7 +2,7 @@ import express, { json } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { success } from "./misc/consoleMessages.js";
-import router from "./routers/authRouter.js";
+import router from "./routers/index.js";
 
 dotenv.config();
 const app = express();
