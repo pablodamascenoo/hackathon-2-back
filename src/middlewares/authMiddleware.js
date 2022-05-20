@@ -6,7 +6,7 @@ export async function validateRegister(req, res, next) {
     const userSchema = joi.object({
         name: joi.string().required(),
         email: joi.string().email().required(),
-        photo: joi.string().regex(/(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/),
+        perfil: joi.string().regex(/(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/),
         password: joi.string().required(),
         confirmPassword: joi.ref('password')
     });
@@ -20,6 +20,23 @@ export async function validateRegister(req, res, next) {
         if (hasEmail) { return res.status(409).send("Erro! O email já está cadastrado!"); }
     } catch (error) {
         return res.status(500).send("Erro ao se comunicar com o banco de dados" + error);
+    }
+    next();
+}
+
+export async function loginSchema(req, res, next) {
+    const { email, password } = req.body;
+
+    const schema = joi.object({
+        email: joi.string().email().required(),
+        password: joi.string().min(1).max(30).required(),
+    });
+
+    const { error } = schema.validate({ email, password }, { abortEarly: false });
+
+    if (error) {
+        console.log(chalk.bold.red(error));
+        return res.status(422).send(error.details[0].message);
     }
     next();
 }
