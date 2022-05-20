@@ -6,9 +6,7 @@ export async function validateRegister(req, res, next) {
     const userSchema = joi.object({
         name: joi.string().required(),
         email: joi.string().email().required(),
-        perfil: joi.string().regex(/(https:\/\/)([^\s(["<,>/]*)(\/)[^\s[",><]*(.png|.jpg)(\?[^\s[",><]*)?/),
-        password: joi.string().required(),
-        confirmPassword: joi.ref('password')
+        password: joi.string().required()
     });
     const { error } = userSchema.validate(dataUser);
     if (error) {
