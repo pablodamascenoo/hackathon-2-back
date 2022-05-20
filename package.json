@@ -1,0 +1,34 @@
+{
+  "name": "hackathon-2-back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "chalk": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "mongodb": "^4.5.0",
+    "string-strip-html": "^9.1.12",
+    "uuid": "^8.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pablodamascenoo/hackathon-2-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pablodamascenoo/hackathon-2-back/issues"
+  },
+  "homepage": "https://github.com/pablodamascenoo/hackathon-2-back#readme",
+  "description": ""
+}
